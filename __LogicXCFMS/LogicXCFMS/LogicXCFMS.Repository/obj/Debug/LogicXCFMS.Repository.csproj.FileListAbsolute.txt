@@ -1,0 +1,17 @@
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\LogicXCFMS.Repository.dll.config
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\LogicXCFMS.Repository.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\LogicXCFMS.Repository.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\EntityFramework.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\EntityFramework.SqlServer.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\LogicXCFMS.Model.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\LogicXCFMS.Model.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\EntityFramework.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\EntityFramework.SqlServer.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\obj\Debug\LogicXCFMS.Repository.csprojResolveAssemblyReference.cache
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\obj\Debug\LogicXCFMS.Repository.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\obj\Debug\LogicXCFMS.Repository.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\AutoMapper.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\System.ValueTuple.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\AutoMapper.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\AutoMapper.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Repository\bin\Debug\System.ValueTuple.xml

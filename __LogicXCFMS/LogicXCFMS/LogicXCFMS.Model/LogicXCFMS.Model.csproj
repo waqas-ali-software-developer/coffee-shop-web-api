@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD9AF154-1955-4211-B3E4-4EB3693C1467}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicXCFMS.Model</RootNamespace>
+    <AssemblyName>LogicXCFMS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutomapperProfile.cs" />
+    <Compile Include="Company.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customers.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Orders.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Orders_Products.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Payment_Methods.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drink.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="In_Offers.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogicXCFMSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogicXCFMSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogicXCFMSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogicXCFMSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogicXCFMSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Menus.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menus_Products.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Messages_Logs.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CompanyModel.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\RoleModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Offers.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders_has_Users.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ref_Drink_Size.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ref_Logs_Types.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ref_Order_Status_Code.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ref_Payment_Methods.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ref_Product_Types.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Roles.cs">
+      <DependentUpon>LogicXCFMSModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="LogicXCFMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogicXCFMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LogicXCFMSModel.edmx.diagram">
+      <DependentUpon>LogicXCFMSModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LogicXCFMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogicXCFMSModel.edmx</DependentUpon>
+      <LastGenOutput>LogicXCFMSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LogicXCFMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogicXCFMSModel.edmx</DependentUpon>
+      <LastGenOutput>LogicXCFMSModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

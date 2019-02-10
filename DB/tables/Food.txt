@@ -1,0 +1,10 @@
+CREATE TABLE Food (
+    product_id INT NOT NULL,
+    contains_nuts_yn VARCHAR(100),
+    price DECIMAL(10,3) NOT NULL,
+    ingredients VARCHAR(100),
+    CONSTRAINT PK_Food PRIMARY KEY (product_id)
+);
+
+ALTER TABLE Food ADD CONSTRAINT Products_Food 
+    FOREIGN KEY (product_id) REFERENCES Products (product_id);

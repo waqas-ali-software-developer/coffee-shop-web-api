@@ -1,0 +1,6 @@
+CREATE TABLE Company (
+    company_id int NOT NULL IDENTITY(1,1),
+    company_name VARCHAR(100) NOT NULL,
+    company_details VARCHAR(200),
+    CONSTRAINT PK_Company PRIMARY KEY (company_id)
+);

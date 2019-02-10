@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32c74de6a7384cec865200ee27f648ae" Name="Diagram1">
+        <EntityTypeShape EntityType="LogicXDBModel.Company" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Customer_Orders" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Customer_Orders_Products" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Customer_Payment_Methods" Width="1.75" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Customers" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Drink" Width="1.5" PointX="10.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Food" Width="1.5" PointX="7.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.In_Offers" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Menus" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Menus_Products" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Messages_Logs" Width="1.5" PointX="13" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Offers" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Orders_has_Users" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Products" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Ref_Drink_Size" Width="1.5" PointX="8.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Ref_Logs_Types" Width="1.5" PointX="10.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Ref_Order_Status_Code" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Ref_Payment_Methods" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Ref_Product_Types" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Role" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.User_Roles" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogicXDBModel.Users" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="LogicXDBModel.Company_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Customer_Orders_Customer_Orders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Customer_Orders_Orders_has_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Customer_Payment_Methods_Customer_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Customers_Customer_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Order_Status_Code_Customer_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Products_Customer_Orders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Customers_Customer_Payment_Methods" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Payment_Methods_Customer_Payment_Methods" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Products_Drink" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Drink_Size_Drink" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Products_Food" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Offers_In_Offers" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Products_In_Offers" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Menus_Menus_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Users_Menus" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Products_Menus_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Logs_Types_Messages_Logs" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Users_Orders_has_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Product_Types_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Users_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Ref_Product_Types_Ref_Product_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Roles_User_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="LogicXDBModel.Users_User_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,14 @@
+CREATE TABLE Products (
+    product_id INT NOT NULL IDENTITY(1,1),
+    product_type_code INT NOT NULL,
+    product_name VARCHAR(100) NOT NULL,
+    product_description VARCHAR(200),
+    other_product_detail VARCHAR(200),
+    user_id INT NOT NULL,
+    CONSTRAINT PK_Products PRIMARY KEY (product_id)
+);
+
+ALTER TABLE Products ADD CONSTRAINT Ref_Product_Types_Products 
+    FOREIGN KEY (product_type_code) REFERENCES Ref_Product_Types (product_type_code);
+ALTER TABLE Products ADD CONSTRAINT Users_Products 
+    FOREIGN KEY (user_id) REFERENCES Users (user_id);

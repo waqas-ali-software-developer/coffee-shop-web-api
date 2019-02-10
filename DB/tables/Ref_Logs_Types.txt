@@ -1,0 +1,6 @@
+CREATE TABLE Ref_Logs_Types (
+    log_type_code INT NOT NULL IDENTITY(1,1),
+    type_name VARCHAR(100) NOT NULL,
+    description VARCHAR(100),
+    CONSTRAINT PK_Ref_Logs_Types PRIMARY KEY (log_type_code)
+);

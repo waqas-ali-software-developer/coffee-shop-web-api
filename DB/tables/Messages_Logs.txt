@@ -1,0 +1,9 @@
+CREATE TABLE Messages_Logs (
+    message_log_id INT NOT NULL,
+    log_type_code INT NOT NULL,
+    descriptions VARCHAR(40),
+    CONSTRAINT PK_Messages_Logs PRIMARY KEY (message_log_id)
+);
+
+ALTER TABLE Messages_Logs ADD CONSTRAINT Ref_Logs_Types_Messages_Logs 
+    FOREIGN KEY (log_type_code) REFERENCES Ref_Logs_Types (log_type_code);

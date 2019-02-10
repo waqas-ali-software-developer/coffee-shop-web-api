@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LogicXDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="company_details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="Self.Company_Users" FromRole="Company" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Customer_Orders">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="customer_payment_method_id" Type="Int32" Nullable="false" />
+    <Property Name="order_status_code" Type="Int32" Nullable="false" />
+    <Property Name="total_order_price" Type="Int32" />
+    <Property Name="date_order_paid" Type="DateTime" Precision="3" />
+    <Property Name="other_order_detials" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Orders_Products" Relationship="Self.Customer_Orders_Customer_Orders_Products" FromRole="Customer_Orders" ToRole="Customer_Orders_Products" />
+    <NavigationProperty Name="Orders_has_Users" Relationship="Self.Customer_Orders_Orders_has_Users" FromRole="Customer_Orders" ToRole="Orders_has_Users" />
+    <NavigationProperty Name="Customer_Payment_Methods" Relationship="Self.Customer_Payment_Methods_Customer_Orders" FromRole="Customer_Orders" ToRole="Customer_Payment_Methods" />
+    <NavigationProperty Name="Customer" Relationship="Self.Customers_Customer_Orders" FromRole="Customer_Orders" ToRole="Customers" />
+    <NavigationProperty Name="Ref_Order_Status_Code" Relationship="Self.Ref_Order_Status_Code_Customer_Orders" FromRole="Customer_Orders" ToRole="Ref_Order_Status_Code" />
+  </EntityType>
+  <EntityType Name="Customer_Orders_Products">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="comments" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Orders" Relationship="Self.Customer_Orders_Customer_Orders_Products" FromRole="Customer_Orders_Products" ToRole="Customer_Orders" />
+    <NavigationProperty Name="Product" Relationship="Self.Products_Customer_Orders_Products" FromRole="Customer_Orders_Products" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer_Payment_Methods">
+    <Key>
+      <PropertyRef Name="customer_payment_method_id" />
+    </Key>
+    <Property Name="customer_payment_method_id" Type="Int32" Nullable="false" />
+    <Property Name="customer_id" Type="Int32" Nullable="false" />
+    <Property Name="payment_method_code" Type="Int32" Nullable="false" />
+    <Property Name="date_from" Type="DateTime" Precision="3" />
+    <Property Name="date_to" Type="DateTime" Precision="3" />
+    <Property Name="other_details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Orders" Relationship="Self.Customer_Payment_Methods_Customer_Orders" FromRole="Customer_Payment_Methods" ToRole="Customer_Orders" />
+    <NavigationProperty Name="Customer" Relationship="Self.Customers_Customer_Payment_Methods" FromRole="Customer_Payment_Methods" ToRole="Customers" />
+    <NavigationProperty Name="Ref_Payment_Methods" Relationship="Self.Ref_Payment_Methods_Customer_Payment_Methods" FromRole="Customer_Payment_Methods" ToRole="Ref_Payment_Methods" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="customer_phone" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="customer_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="customer_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer_Orders" Relationship="Self.Customers_Customer_Orders" FromRole="Customers" ToRole="Customer_Orders" />
+    <NavigationProperty Name="Customer_Payment_Methods" Relationship="Self.Customers_Customer_Payment_Methods" FromRole="Customers" ToRole="Customer_Payment_Methods" />
+  </EntityType>
+  <EntityType Name="Drink">
+    <Key>
+      <PropertyRef Name="product_id" />
+      <PropertyRef Name="drink_size_code" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="drink_size_code" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="flavor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ingredients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.Products_Drink" FromRole="Drink" ToRole="Products" />
+    <NavigationProperty Name="Ref_Drink_Size" Relationship="Self.Ref_Drink_Size_Drink" FromRole="Drink" ToRole="Ref_Drink_Size" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="contains_nuts_yn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="ingredients" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.Products_Food" FromRole="Food" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="In_Offers">
+    <Key>
+      <PropertyRef Name="offer_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="offer_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Offer" Relationship="Self.Offers_In_Offers" FromRole="In_Offers" ToRole="Offers" />
+    <NavigationProperty Name="Product" Relationship="Self.Products_In_Offers" FromRole="In_Offers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="image" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Menus_Products" Relationship="Self.Menus_Menus_Products" FromRole="Menus" ToRole="Menus_Products" />
+    <NavigationProperty Name="User" Relationship="Self.Users_Menus" FromRole="Menus" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Menus_Products">
+    <Key>
+      <PropertyRef Name="menu_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="menu_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="added_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Menu" Relationship="Self.Menus_Menus_Products" FromRole="Menus_Products" ToRole="Menus" />
+    <NavigationProperty Name="Product" Relationship="Self.Products_Menus_Products" FromRole="Menus_Products" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Messages_Logs">
+    <Key>
+      <PropertyRef Name="message_log_id" />
+    </Key>
+    <Property Name="message_log_id" Type="Int32" Nullable="false" />
+    <Property Name="log_type_code" Type="Int32" Nullable="false" />
+    <Property Name="descriptions" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Ref_Logs_Types" Relationship="Self.Ref_Logs_Types_Messages_Logs" FromRole="Messages_Logs" ToRole="Ref_Logs_Types" />
+  </EntityType>
+  <EntityType Name="Offers">
+    <Key>
+      <PropertyRef Name="offer_id" />
+    </Key>
+    <Property Name="offer_id" Type="Int32" Nullable="false" />
+    <Property Name="date_time_active_from" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="date_time_active_to" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="offer_price" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <NavigationProperty Name="In_Offers" Relationship="Self.Offers_In_Offers" FromRole="Offers" ToRole="In_Offers" />
+  </EntityType>
+  <EntityType Name="Orders_has_Users">
+    <Key>
+      <PropertyRef Name="order_id" />
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer_Orders" Relationship="Self.Customer_Orders_Orders_has_Users" FromRole="Orders_has_Users" ToRole="Customer_Orders" />
+    <NavigationProperty Name="User" Relationship="Self.Users_Orders_has_Users" FromRole="Orders_has_Users" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_type_code" Type="Int32" Nullable="false" />
+    <Property Name="product_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="product_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="other_product_detail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer_Orders_Products" Relationship="Self.Products_Customer_Orders_Products" FromRole="Products" ToRole="Customer_Orders_Products" />
+    <NavigationProperty Name="Drinks" Relationship="Self.Products_Drink" FromRole="Products" ToRole="Drink" />
+    <NavigationProperty Name="Food" Relationship="Self.Products_Food" FromRole="Products" ToRole="Food" />
+    <NavigationProperty Name="In_Offers" Relationship="Self.Products_In_Offers" FromRole="Products" ToRole="In_Offers" />
+    <NavigationProperty Name="Menus_Products" Relationship="Self.Products_Menus_Products" FromRole="Products" ToRole="Menus_Products" />
+    <NavigationProperty Name="Ref_Product_Types" Relationship="Self.Ref_Product_Types_Products" FromRole="Products" ToRole="Ref_Product_Types" />
+    <NavigationProperty Name="User" Relationship="Self.Users_Products" FromRole="Products" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Ref_Drink_Size">
+    <Key>
+      <PropertyRef Name="drink_size_code" />
+    </Key>
+    <Property Name="drink_size_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Drinks" Relationship="Self.Ref_Drink_Size_Drink" FromRole="Ref_Drink_Size" ToRole="Drink" />
+  </EntityType>
+  <EntityType Name="Ref_Logs_Types">
+    <Key>
+      <PropertyRef Name="log_type_code" />
+    </Key>
+    <Property Name="log_type_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Messages_Logs" Relationship="Self.Ref_Logs_Types_Messages_Logs" FromRole="Ref_Logs_Types" ToRole="Messages_Logs" />
+  </EntityType>
+  <EntityType Name="Ref_Order_Status_Code">
+    <Key>
+      <PropertyRef Name="order_status_code" />
+    </Key>
+    <Property Name="order_status_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_status_decsription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Customer_Orders" Relationship="Self.Ref_Order_Status_Code_Customer_Orders" FromRole="Ref_Order_Status_Code" ToRole="Customer_Orders" />
+  </EntityType>
+  <EntityType Name="Ref_Payment_Methods">
+    <Key>
+      <PropertyRef Name="payment_method_code" />
+    </Key>
+    <Property Name="payment_method_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payment_method_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Customer_Payment_Methods" Relationship="Self.Ref_Payment_Methods_Customer_Payment_Methods" FromRole="Ref_Payment_Methods" ToRole="Customer_Payment_Methods" />
+  </EntityType>
+  <EntityType Name="Ref_Product_Types">
+    <Key>
+      <PropertyRef Name="product_type_code" />
+    </Key>
+    <Property Name="product_type_code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parent_product_type_code" Type="Int32" Nullable="false" />
+    <Property Name="product_type_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Products" Relationship="Self.Ref_Product_Types_Products" FromRole="Ref_Product_Types" ToRole="Products" />
+    <NavigationProperty Name="Ref_Product_Types1" Relationship="Self.Ref_Product_Types_Ref_Product_Types" FromRole="Ref_Product_Types" ToRole="Ref_Product_Types1" />
+    <NavigationProperty Name="Ref_Product_Types2" Relationship="Self.Ref_Product_Types_Ref_Product_Types" FromRole="Ref_Product_Types1" ToRole="Ref_Product_Types" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="User_Roles" Relationship="Self.Roles_User_Roles" FromRole="Roles" ToRole="User_Roles" />
+  </EntityType>
+  <EntityType Name="User_Roles">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <Property Name="role_assign_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Role" Relationship="Self.Roles_User_Roles" FromRole="User_Roles" ToRole="Roles" />
+    <NavigationProperty Name="User" Relationship="Self.Users_User_Roles" FromRole="User_Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comany_id" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_phone" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="user_date_of_joining" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="Self.Company_Users" FromRole="Users" ToRole="Company" />
+    <NavigationProperty Name="Menus" Relationship="Self.Users_Menus" FromRole="Users" ToRole="Menus" />
+    <NavigationProperty Name="Orders_has_Users" Relationship="Self.Users_Orders_has_Users" FromRole="Users" ToRole="Orders_has_Users" />
+    <NavigationProperty Name="Products" Relationship="Self.Users_Products" FromRole="Users" ToRole="Products" />
+    <NavigationProperty Name="User_Roles" Relationship="Self.Users_User_Roles" FromRole="Users" ToRole="User_Roles" />
+  </EntityType>
+  <Association Name="Company_Users">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="Users" Type="LogicXDBModel.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="comany_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_Orders_Customer_Orders_Products">
+    <End Role="Customer_Orders" Type="Self.Customer_Orders" Multiplicity="1" />
+    <End Role="Customer_Orders_Products" Type="Self.Customer_Orders_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Customer_Orders_Products">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_Orders_Orders_has_Users">
+    <End Role="Customer_Orders" Type="Self.Customer_Orders" Multiplicity="1" />
+    <End Role="Orders_has_Users" Type="Self.Orders_has_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Orders">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="Orders_has_Users">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customer_Payment_Methods_Customer_Orders">
+    <End Role="Customer_Payment_Methods" Type="Self.Customer_Payment_Methods" Multiplicity="1" />
+    <End Role="Customer_Orders" Type="Self.Customer_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer_Payment_Methods">
+        <PropertyRef Name="customer_payment_method_id" />
+      </Principal>
+      <Dependent Role="Customer_Orders">
+        <PropertyRef Name="customer_payment_method_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customers_Customer_Orders">
+    <End Role="Customers" Type="LogicXDBModel.Customers" Multiplicity="1" />
+    <End Role="Customer_Orders" Type="Self.Customer_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Customer_Orders">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Order_Status_Code_Customer_Orders">
+    <End Role="Ref_Order_Status_Code" Type="Self.Ref_Order_Status_Code" Multiplicity="1" />
+    <End Role="Customer_Orders" Type="Self.Customer_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Order_Status_Code">
+        <PropertyRef Name="order_status_code" />
+      </Principal>
+      <Dependent Role="Customer_Orders">
+        <PropertyRef Name="order_status_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_Customer_Orders_Products">
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="1" />
+    <End Role="Customer_Orders_Products" Type="Self.Customer_Orders_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Customer_Orders_Products">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Customers_Customer_Payment_Methods">
+    <End Role="Customers" Type="LogicXDBModel.Customers" Multiplicity="1" />
+    <End Role="Customer_Payment_Methods" Type="Self.Customer_Payment_Methods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Customer_Payment_Methods">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Payment_Methods_Customer_Payment_Methods">
+    <End Role="Ref_Payment_Methods" Type="Self.Ref_Payment_Methods" Multiplicity="1" />
+    <End Role="Customer_Payment_Methods" Type="Self.Customer_Payment_Methods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Payment_Methods">
+        <PropertyRef Name="payment_method_code" />
+      </Principal>
+      <Dependent Role="Customer_Payment_Methods">
+        <PropertyRef Name="payment_method_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_Drink">
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="1" />
+    <End Role="Drink" Type="Self.Drink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Drink">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Drink_Size_Drink">
+    <End Role="Ref_Drink_Size" Type="Self.Ref_Drink_Size" Multiplicity="1" />
+    <End Role="Drink" Type="Self.Drink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Drink_Size">
+        <PropertyRef Name="drink_size_code" />
+      </Principal>
+      <Dependent Role="Drink">
+        <PropertyRef Name="drink_size_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_Food">
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Offers_In_Offers">
+    <End Role="Offers" Type="LogicXDBModel.Offers" Multiplicity="1" />
+    <End Role="In_Offers" Type="Self.In_Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offers">
+        <PropertyRef Name="offer_id" />
+      </Principal>
+      <Dependent Role="In_Offers">
+        <PropertyRef Name="offer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_In_Offers">
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="1" />
+    <End Role="In_Offers" Type="Self.In_Offers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="In_Offers">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Menus_Menus_Products">
+    <End Role="Menus" Type="LogicXDBModel.Menus" Multiplicity="1" />
+    <End Role="Menus_Products" Type="Self.Menus_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="menu_id" />
+      </Principal>
+      <Dependent Role="Menus_Products">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_Menus">
+    <End Role="Users" Type="LogicXDBModel.Users" Multiplicity="1" />
+    <End Role="Menus" Type="LogicXDBModel.Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Products_Menus_Products">
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="1" />
+    <End Role="Menus_Products" Type="Self.Menus_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Menus_Products">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Logs_Types_Messages_Logs">
+    <End Role="Ref_Logs_Types" Type="Self.Ref_Logs_Types" Multiplicity="1" />
+    <End Role="Messages_Logs" Type="Self.Messages_Logs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Logs_Types">
+        <PropertyRef Name="log_type_code" />
+      </Principal>
+      <Dependent Role="Messages_Logs">
+        <PropertyRef Name="log_type_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_Orders_has_Users">
+    <End Role="Users" Type="LogicXDBModel.Users" Multiplicity="1" />
+    <End Role="Orders_has_Users" Type="Self.Orders_has_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Orders_has_Users">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Product_Types_Products">
+    <End Role="Ref_Product_Types" Type="Self.Ref_Product_Types" Multiplicity="1" />
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Product_Types">
+        <PropertyRef Name="product_type_code" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="product_type_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_Products">
+    <End Role="Users" Type="LogicXDBModel.Users" Multiplicity="1" />
+    <End Role="Products" Type="LogicXDBModel.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref_Product_Types_Ref_Product_Types">
+    <End Role="Ref_Product_Types" Type="Self.Ref_Product_Types" Multiplicity="1" />
+    <End Role="Ref_Product_Types1" Type="Self.Ref_Product_Types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ref_Product_Types">
+        <PropertyRef Name="product_type_code" />
+      </Principal>
+      <Dependent Role="Ref_Product_Types1">
+        <PropertyRef Name="parent_product_type_code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Roles_User_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="User_Roles">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Users_User_Roles">
+    <End Role="Users" Type="LogicXDBModel.Users" Multiplicity="1" />
+    <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="User_Roles">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LogicXDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Customer_Orders" EntityType="Self.Customer_Orders" />
+    <EntitySet Name="Customer_Orders_Products" EntityType="Self.Customer_Orders_Products" />
+    <EntitySet Name="Customer_Payment_Methods" EntityType="Self.Customer_Payment_Methods" />
+    <EntitySet Name="Customers" EntityType="LogicXDBModel.Customers" />
+    <EntitySet Name="Drinks" EntityType="Self.Drink" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="In_Offers" EntityType="Self.In_Offers" />
+    <EntitySet Name="Menus" EntityType="LogicXDBModel.Menus" />
+    <EntitySet Name="Menus_Products" EntityType="Self.Menus_Products" />
+    <EntitySet Name="Messages_Logs" EntityType="Self.Messages_Logs" />
+    <EntitySet Name="Offers" EntityType="LogicXDBModel.Offers" />
+    <EntitySet Name="Orders_has_Users" EntityType="Self.Orders_has_Users" />
+    <EntitySet Name="Products" EntityType="LogicXDBModel.Products" />
+    <EntitySet Name="Ref_Drink_Size" EntityType="Self.Ref_Drink_Size" />
+    <EntitySet Name="Ref_Logs_Types" EntityType="Self.Ref_Logs_Types" />
+    <EntitySet Name="Ref_Order_Status_Code" EntityType="Self.Ref_Order_Status_Code" />
+    <EntitySet Name="Ref_Payment_Methods" EntityType="Self.Ref_Payment_Methods" />
+    <EntitySet Name="Ref_Product_Types" EntityType="Self.Ref_Product_Types" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="User_Roles" EntityType="Self.User_Roles" />
+    <EntitySet Name="Users" EntityType="LogicXDBModel.Users" />
+    <AssociationSet Name="Company_Users" Association="Self.Company_Users">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_Orders_Customer_Orders_Products" Association="Self.Customer_Orders_Customer_Orders_Products">
+      <End Role="Customer_Orders" EntitySet="Customer_Orders" />
+      <End Role="Customer_Orders_Products" EntitySet="Customer_Orders_Products" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_Orders_Orders_has_Users" Association="Self.Customer_Orders_Orders_has_Users">
+      <End Role="Customer_Orders" EntitySet="Customer_Orders" />
+      <End Role="Orders_has_Users" EntitySet="Orders_has_Users" />
+    </AssociationSet>
+    <AssociationSet Name="Customer_Payment_Methods_Customer_Orders" Association="Self.Customer_Payment_Methods_Customer_Orders">
+      <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
+      <End Role="Customer_Orders" EntitySet="Customer_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Customers_Customer_Orders" Association="Self.Customers_Customer_Orders">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Customer_Orders" EntitySet="Customer_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Order_Status_Code_Customer_Orders" Association="Self.Ref_Order_Status_Code_Customer_Orders">
+      <End Role="Ref_Order_Status_Code" EntitySet="Ref_Order_Status_Code" />
+      <End Role="Customer_Orders" EntitySet="Customer_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Products_Customer_Orders_Products" Association="Self.Products_Customer_Orders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Customer_Orders_Products" EntitySet="Customer_Orders_Products" />
+    </AssociationSet>
+    <AssociationSet Name="Customers_Customer_Payment_Methods" Association="Self.Customers_Customer_Payment_Methods">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Payment_Methods_Customer_Payment_Methods" Association="Self.Ref_Payment_Methods_Customer_Payment_Methods">
+      <End Role="Ref_Payment_Methods" EntitySet="Ref_Payment_Methods" />
+      <End Role="Customer_Payment_Methods" EntitySet="Customer_Payment_Methods" />
+    </AssociationSet>
+    <AssociationSet Name="Products_Drink" Association="Self.Products_Drink">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Drink" EntitySet="Drinks" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Drink_Size_Drink" Association="Self.Ref_Drink_Size_Drink">
+      <End Role="Ref_Drink_Size" EntitySet="Ref_Drink_Size" />
+      <End Role="Drink" EntitySet="Drinks" />
+    </AssociationSet>
+    <AssociationSet Name="Products_Food" Association="Self.Products_Food">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="Offers_In_Offers" Association="Self.Offers_In_Offers">
+      <End Role="Offers" EntitySet="Offers" />
+      <End Role="In_Offers" EntitySet="In_Offers" />
+    </AssociationSet>
+    <AssociationSet Name="Products_In_Offers" Association="Self.Products_In_Offers">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="In_Offers" EntitySet="In_Offers" />
+    </AssociationSet>
+    <AssociationSet Name="Menus_Menus_Products" Association="Self.Menus_Menus_Products">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Menus_Products" EntitySet="Menus_Products" />
+    </AssociationSet>
+    <AssociationSet Name="Users_Menus" Association="Self.Users_Menus">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="Products_Menus_Products" Association="Self.Products_Menus_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Menus_Products" EntitySet="Menus_Products" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Logs_Types_Messages_Logs" Association="Self.Ref_Logs_Types_Messages_Logs">
+      <End Role="Ref_Logs_Types" EntitySet="Ref_Logs_Types" />
+      <End Role="Messages_Logs" EntitySet="Messages_Logs" />
+    </AssociationSet>
+    <AssociationSet Name="Users_Orders_has_Users" Association="Self.Users_Orders_has_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders_has_Users" EntitySet="Orders_has_Users" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Product_Types_Products" Association="Self.Ref_Product_Types_Products">
+      <End Role="Ref_Product_Types" EntitySet="Ref_Product_Types" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="Users_Products" Association="Self.Users_Products">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="Ref_Product_Types_Ref_Product_Types" Association="Self.Ref_Product_Types_Ref_Product_Types">
+      <End Role="Ref_Product_Types" EntitySet="Ref_Product_Types" />
+      <End Role="Ref_Product_Types1" EntitySet="Ref_Product_Types" />
+    </AssociationSet>
+    <AssociationSet Name="Roles_User_Roles" Association="Self.Roles_User_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="User_Roles" EntitySet="User_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="Users_User_Roles" Association="Self.Users_User_Roles">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="User_Roles" EntitySet="User_Roles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

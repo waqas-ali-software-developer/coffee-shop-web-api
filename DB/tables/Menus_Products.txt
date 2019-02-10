@@ -1,0 +1,11 @@
+CREATE TABLE Menus_Products (
+    menu_id INT NOT NULL,
+    product_id INT NOT NULL,
+    added_date DATETIME,
+    CONSTRAINT PK_Menus_Products PRIMARY KEY (menu_id, product_id)
+);
+
+ALTER TABLE Menus_Products ADD CONSTRAINT Menus_Menus_Products 
+    FOREIGN KEY (menu_id) REFERENCES Menus (menu_id);
+ALTER TABLE Menus_Products ADD CONSTRAINT Products_Menus_Products 
+    FOREIGN KEY (product_id) REFERENCES Products (product_id);

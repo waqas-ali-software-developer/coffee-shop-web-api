@@ -1,0 +1,15 @@
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\LogicXCFMS.Model.dll.config
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\LogicXCFMS.Model.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\LogicXCFMS.Model.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\EntityFramework.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\EntityFramework.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\obj\Debug\LogicXCFMS.Model.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\obj\Debug\LogicXCFMS.Model.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\AutoMapper.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\System.ValueTuple.dll
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\AutoMapper.pdb
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\AutoMapper.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\bin\Debug\System.ValueTuple.xml
+E:\test_assignment\__LogicXCFMS\LogicXCFMS\LogicXCFMS.Model\obj\Debug\LogicXCFMS.Model.csprojResolveAssemblyReference.cache

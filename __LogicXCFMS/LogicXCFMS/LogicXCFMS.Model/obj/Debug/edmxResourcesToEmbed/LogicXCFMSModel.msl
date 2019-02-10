@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LogicXDBModelStoreContainer" CdmEntityContainer="LogicXDBContext">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="LogicXDBModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="company_details" ColumnName="company_details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Orders">
+      <EntityTypeMapping TypeName="LogicXDBModel.Customer_Orders">
+        <MappingFragment StoreEntitySet="Customer_Orders">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="customer_payment_method_id" ColumnName="customer_payment_method_id" />
+          <ScalarProperty Name="order_status_code" ColumnName="order_status_code" />
+          <ScalarProperty Name="total_order_price" ColumnName="total_order_price" />
+          <ScalarProperty Name="date_order_paid" ColumnName="date_order_paid" />
+          <ScalarProperty Name="other_order_detials" ColumnName="other_order_detials" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Orders_Products">
+      <EntityTypeMapping TypeName="LogicXDBModel.Customer_Orders_Products">
+        <MappingFragment StoreEntitySet="Customer_Orders_Products">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Payment_Methods">
+      <EntityTypeMapping TypeName="LogicXDBModel.Customer_Payment_Methods">
+        <MappingFragment StoreEntitySet="Customer_Payment_Methods">
+          <ScalarProperty Name="customer_payment_method_id" ColumnName="customer_payment_method_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="payment_method_code" ColumnName="payment_method_code" />
+          <ScalarProperty Name="date_from" ColumnName="date_from" />
+          <ScalarProperty Name="date_to" ColumnName="date_to" />
+          <ScalarProperty Name="other_details" ColumnName="other_details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="LogicXDBModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="customer_phone" ColumnName="customer_phone" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drinks">
+      <EntityTypeMapping TypeName="LogicXDBModel.Drink">
+        <MappingFragment StoreEntitySet="Drink">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="drink_size_code" ColumnName="drink_size_code" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="flavor" ColumnName="flavor" />
+          <ScalarProperty Name="ingredients" ColumnName="ingredients" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="LogicXDBModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="contains_nuts_yn" ColumnName="contains_nuts_yn" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="ingredients" ColumnName="ingredients" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="In_Offers">
+      <EntityTypeMapping TypeName="LogicXDBModel.In_Offers">
+        <MappingFragment StoreEntitySet="In_Offers">
+          <ScalarProperty Name="offer_id" ColumnName="offer_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="LogicXDBModel.Menus">
+        <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus_Products">
+      <EntityTypeMapping TypeName="LogicXDBModel.Menus_Products">
+        <MappingFragment StoreEntitySet="Menus_Products">
+          <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="added_date" ColumnName="added_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages_Logs">
+      <EntityTypeMapping TypeName="LogicXDBModel.Messages_Logs">
+        <MappingFragment StoreEntitySet="Messages_Logs">
+          <ScalarProperty Name="message_log_id" ColumnName="message_log_id" />
+          <ScalarProperty Name="log_type_code" ColumnName="log_type_code" />
+          <ScalarProperty Name="descriptions" ColumnName="descriptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="LogicXDBModel.Offers">
+        <MappingFragment StoreEntitySet="Offers">
+          <ScalarProperty Name="offer_id" ColumnName="offer_id" />
+          <ScalarProperty Name="date_time_active_from" ColumnName="date_time_active_from" />
+          <ScalarProperty Name="date_time_active_to" ColumnName="date_time_active_to" />
+          <ScalarProperty Name="offer_price" ColumnName="offer_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders_has_Users">
+      <EntityTypeMapping TypeName="LogicXDBModel.Orders_has_Users">
+        <MappingFragment StoreEntitySet="Orders_has_Users">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="LogicXDBModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_description" ColumnName="product_description" />
+          <ScalarProperty Name="other_product_detail" ColumnName="other_product_detail" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ref_Drink_Size">
+      <EntityTypeMapping TypeName="LogicXDBModel.Ref_Drink_Size">
+        <MappingFragment StoreEntitySet="Ref_Drink_Size">
+          <ScalarProperty Name="drink_size_code" ColumnName="drink_size_code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ref_Logs_Types">
+      <EntityTypeMapping TypeName="LogicXDBModel.Ref_Logs_Types">
+        <MappingFragment StoreEntitySet="Ref_Logs_Types">
+          <ScalarProperty Name="log_type_code" ColumnName="log_type_code" />
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ref_Order_Status_Code">
+      <EntityTypeMapping TypeName="LogicXDBModel.Ref_Order_Status_Code">
+        <MappingFragment StoreEntitySet="Ref_Order_Status_Code">
+          <ScalarProperty Name="order_status_code" ColumnName="order_status_code" />
+          <ScalarProperty Name="order_status_decsription" ColumnName="order_status_decsription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ref_Payment_Methods">
+      <EntityTypeMapping TypeName="LogicXDBModel.Ref_Payment_Methods">
+        <MappingFragment StoreEntitySet="Ref_Payment_Methods">
+          <ScalarProperty Name="payment_method_code" ColumnName="payment_method_code" />
+          <ScalarProperty Name="payment_method_description" ColumnName="payment_method_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ref_Product_Types">
+      <EntityTypeMapping TypeName="LogicXDBModel.Ref_Product_Types">
+        <MappingFragment StoreEntitySet="Ref_Product_Types">
+          <ScalarProperty Name="product_type_code" ColumnName="product_type_code" />
+          <ScalarProperty Name="parent_product_type_code" ColumnName="parent_product_type_code" />
+          <ScalarProperty Name="product_type_description" ColumnName="product_type_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="LogicXDBModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Roles">
+      <EntityTypeMapping TypeName="LogicXDBModel.User_Roles">
+        <MappingFragment StoreEntitySet="User_Roles">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_assign_date" ColumnName="role_assign_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LogicXDBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="comany_id" ColumnName="comany_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_date_of_joining" ColumnName="user_date_of_joining" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,5 @@
+CREATE TABLE Ref_Drink_Size (
+    drink_size_code INT NOT NULL IDENTITY(1,1),
+    description VARCHAR(200) NOT NULL,
+    CONSTRAINT PK_Ref_Drink_Size PRIMARY KEY (drink_size_code)
+);

@@ -1,0 +1,15 @@
+
+
+CREATE TABLE Drink (
+    product_id INT NOT NULL,
+    drink_size_code INT NOT NULL,
+    price DECIMAL(10,3) NOT NULL,
+    flavor VARCHAR(100),
+    ingredients VARCHAR(100) ,
+    CONSTRAINT PK_Drink PRIMARY KEY (product_id, drink_size_code)
+);
+
+ALTER TABLE Drink ADD CONSTRAINT Ref_Drink_Size_Drink 
+    FOREIGN KEY (drink_size_code) REFERENCES Ref_Drink_Size (drink_size_code);
+ALTER TABLE Drink ADD CONSTRAINT Products_Drink 
+    FOREIGN KEY (product_id) REFERENCES Products (product_id);

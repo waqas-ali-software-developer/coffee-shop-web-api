@@ -1,0 +1,5 @@
+CREATE TABLE Roles (
+    role_id INT NOT NULL IDENTITY(1,1),
+    role_name VARCHAR(40) NOT NULL ,
+    CONSTRAINT PK_Roles PRIMARY KEY (role_id)
+);

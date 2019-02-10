@@ -1,0 +1,13 @@
+CREATE TABLE Orders_has_Users (
+    order_id INT NOT NULL,
+    user_id INT NOT NULL,
+    type VARCHAR(40) NOT NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME,
+    CONSTRAINT PK_Orders_has_Users PRIMARY KEY (order_id, user_id)
+);
+
+ALTER TABLE Orders_has_Users ADD CONSTRAINT Customer_Orders_Orders_has_Users 
+    FOREIGN KEY (order_id) REFERENCES Customer_Orders (order_id);
+ALTER TABLE Orders_has_Users ADD CONSTRAINT Users_Orders_has_Users 
+    FOREIGN KEY (user_id) REFERENCES Users (user_id);

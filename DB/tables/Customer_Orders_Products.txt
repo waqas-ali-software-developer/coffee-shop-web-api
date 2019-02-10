@@ -1,0 +1,12 @@
+CREATE TABLE Customer_Orders_Products (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    comments VARCHAR(40),
+    CONSTRAINT PK_Customer_Orders_Products PRIMARY KEY (order_id, product_id)
+);
+
+ALTER TABLE Customer_Orders_Products ADD CONSTRAINT Products_Customer_Orders_Products 
+    FOREIGN KEY (product_id) REFERENCES Products (product_id);
+ALTER TABLE Customer_Orders_Products ADD CONSTRAINT Customer_Orders_Customer_Orders_Products 
+    FOREIGN KEY (order_id) REFERENCES Customer_Orders (order_id);

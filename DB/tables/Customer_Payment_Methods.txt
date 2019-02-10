@@ -1,0 +1,14 @@
+CREATE TABLE Customer_Payment_Methods (
+    customer_payment_method_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    payment_method_code INTEGER NOT NULL,
+    date_from DATETIME,
+    date_to DATETIME,
+    other_details VARCHAR(100),
+    CONSTRAINT PK_Customer_Payment_Methods PRIMARY KEY (customer_payment_method_id)
+);
+
+ALTER TABLE Customer_Payment_Methods ADD CONSTRAINT Customers_Customer_Payment_Methods 
+    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id);
+ALTER TABLE Customer_Payment_Methods ADD CONSTRAINT Ref_Payment_Methods_Customer_Payment_Methods 
+    FOREIGN KEY (payment_method_code) REFERENCES Ref_Payment_Methods (payment_method_code);

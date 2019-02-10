@@ -1,0 +1,17 @@
+CREATE TABLE Customer_Orders (
+    order_id INT NOT NULL IDENTITY(1,1),
+    customer_id INT NOT NULL,
+    customer_payment_method_id INT NOT NULL,
+    order_status_code INT NOT NULL,
+    total_order_price INT,
+    date_order_paid DATETIME,
+    other_order_detials VARCHAR(100),
+    PRIMARY KEY (order_id)
+);
+
+ALTER TABLE Customer_Orders ADD CONSTRAINT Customers_Customer_Orders 
+    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id);
+ALTER TABLE Customer_Orders ADD CONSTRAINT Customer_Payment_Methods_Customer_Orders 
+    FOREIGN KEY (customer_payment_method_id) REFERENCES Customer_Payment_Methods (customer_payment_method_id);
+ALTER TABLE Customer_Orders ADD CONSTRAINT Ref_Order_Status_Code_Customer_Orders 
+    FOREIGN KEY (order_status_code) REFERENCES Ref_Order_Status_Code (order_status_code);

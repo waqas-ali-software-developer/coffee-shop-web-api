@@ -1,0 +1,9 @@
+CREATE TABLE Ref_Product_Types (
+    product_type_code INT NOT NULL IDENTITY(1,1),
+    parent_product_type_code INT NOT NULL,
+    product_type_description VARCHAR(200),
+    CONSTRAINT PK_Ref_Product_Types PRIMARY KEY (product_type_code)
+);
+
+ALTER TABLE Ref_Product_Types ADD CONSTRAINT Ref_Product_Types_Ref_Product_Types 
+    FOREIGN KEY (parent_product_type_code) REFERENCES Ref_Product_Types (product_type_code);

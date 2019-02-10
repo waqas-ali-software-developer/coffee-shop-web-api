@@ -1,0 +1,11 @@
+CREATE TABLE In_Offers (
+    offer_id INT NOT NULL,
+    product_id INT NOT NULL,
+    added_date datetime,
+    CONSTRAINT PK_In_Offers PRIMARY KEY (offer_id, product_id)
+);
+
+ALTER TABLE In_Offers ADD CONSTRAINT Offers_In_Offers 
+    FOREIGN KEY (offer_id) REFERENCES Offers (offer_id);
+ALTER TABLE In_Offers ADD CONSTRAINT Products_In_Offers 
+    FOREIGN KEY (product_id) REFERENCES Products (product_id);

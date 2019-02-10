@@ -1,0 +1,5 @@
+CREATE TABLE Ref_Order_Status_Code (
+    order_status_code INT NOT NULL IDENTITY(1,1),
+    order_status_decsription VARCHAR(100) NOT NULL,
+    CONSTRAINT PK_Ref_Order_Status_Code PRIMARY KEY (order_status_code)
+);
